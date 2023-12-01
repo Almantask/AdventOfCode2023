@@ -3,18 +3,6 @@
 public static class StringExtensions
 {
     public static string[] SplitByEndOfLine(this string text)
-        => text.Split(Environment.NewLine);
-
-    public static string[] SplitByDoubleEndOfLine(this string text)
-        => text.Split($"{Environment.NewLine}{Environment.NewLine}");
-
-    public static long[] ToNumbersSplitByEndOfLine(this string text)
-    {
-        var numbers = text
-            .Split(Environment.NewLine)
-            .Select(long.Parse)
-            .ToArray();
-
-        return numbers;
-    }
+        => text // Had to split by \n because the input files may be saved in different formats.
+        .Split(new[] { Environment.NewLine, "\n" }, StringSplitOptions.RemoveEmptyEntries);
 }

@@ -1,5 +1,6 @@
 ﻿using AdventOfCode.Common.Day;
 using AdventOfCode.Common.Extensions;
+using System.Text;
 
 namespace AdventOfCode.Day1
 {
@@ -12,7 +13,16 @@ namespace AdventOfCode.Day1
     {
         public long Solve(string input)
         {
-            return 0;
+            var lines =  input.SplitByEndOfLine();
+            var callibrationValues = new List<int>();
+            foreach (var line in lines)
+            {
+                var digits = line.Where(char.IsDigit).ToList().ToArray();
+                var firstTwoDigitsCombined = digits.First() + "" + digits.Last();
+                callibrationValues.Add(int.Parse(firstTwoDigitsCombined));
+            }
+
+            return callibrationValues.Sum();
         }
     }
 
@@ -20,7 +30,24 @@ namespace AdventOfCode.Day1
     {
         public long Solve(string input)
         {
-            return 0;
+            var wordsReplacedWithDigits = ReplaceFirstAndLastWordsWithDigits(input);
+            var part1 = new Part1();
+            return part1.Solve(wordsReplacedWithDigits);
+        }
+
+        private static string ReplaceFirstAndLastWordsWithDigits(string input)
+        {
+            var lines = input.SplitByEndOfLine();
+            var sb = new StringBuilder();
+            foreach (var line in lines)
+            {
+                string replaced = line;
+                replaced = DigitsMatcher.ReplaceTheFirstFoundDigitWordWithDigit(replaced);
+                replaced = DigitsMatcher.ReplaceTheLastFoundDigitWordWithDigit(replaced);
+                sb.AppendLine(replaced);
+            }
+
+            return sb.ToString();
         }
     }
 }

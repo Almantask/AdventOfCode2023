@@ -32,6 +32,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Update="Input\Day1\Part2.txt">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
 	  <None Update="Input\Day5\Example.txt">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </None>
@@ -44,7 +47,7 @@
 	  <None Update="Input\Day2\Example.txt">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </None>
-	  <None Update="Input\Day1\Example.txt">
+	  <None Update="Input\Day1\Part1.txt">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </None>
 	</ItemGroup>

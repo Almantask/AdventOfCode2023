@@ -4,7 +4,9 @@
       <Value>Input\**.*</Value>
     </AdditionalFilesToIncludeForProject>
     <CopyReferencedAssembliesToWorkspace>True</CopyReferencedAssembliesToWorkspace>
-    <HiddenComponentWarnings />
+    <HiddenComponentWarnings>
+      <Value>CopyReferencedAssembliesToWorkspaceIsOn</Value>
+    </HiddenComponentWarnings>
     <RunPostBuildEvents>True</RunPostBuildEvents>
     <RunPreBuildEvents>True</RunPreBuildEvents>
   </Settings>
