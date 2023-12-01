@@ -30,8 +30,8 @@ jobs:
       run: dotnet test --no-build --verbosity normal /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
 
     - name: Codacy Coverage Reporter
-        env:
-          CODACY_PROJECT_TOKEN: 688e7c8f14bb419396fe6dfcaffba1ae
-        run: |
-          curl -L https://coverage.codacy.com/get.sh | bash -s report -r coverage.xml
+      env:
+        CODACY_PROJECT_TOKEN: 688e7c8f14bb419396fe6dfcaffba1ae
+      run: |
+        curl -L https://coverage.codacy.com/get.sh | bash -s report -r coverage.xml
            
