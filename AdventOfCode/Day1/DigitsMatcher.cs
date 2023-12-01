@@ -20,21 +20,21 @@ namespace AdventOfCode.Day1
             };
 
             public string Word { get; }
-            private MatchCollection Matches { get; }
+            public List<Match> Matches { get; }
 
             public bool Matched => Matches.Any();
             public string Digit => Numbers[Word];
             public int FirstMatchIndex => Matches.Select(m => m.Index).Min();
             public int LastMatchIndex => Matches.Select(m => m.Index).Max();
 
-            public NumberLookup(string number, MatchCollection matches)
+            public NumberLookup(string number, List<Match> matches)
             {
                 Word = number;
                 Matches = matches;
             }
         }
 
-        public static string ReplaceTheFirstFoundDigitWordWithDigit(string line)
+        public static string? FindFirstDigit(string line)
         {
             List<NumberLookup> numberTranslationLookups = LookupForNumbers(line);
 
@@ -43,11 +43,10 @@ namespace AdventOfCode.Day1
                 .OrderBy(l => l.FirstMatchIndex)
                 .FirstOrDefault();
 
-            if (firstNumberFound == null) return line;
-            return ReplaceLookupWordWithDigit(line, firstNumberFound.FirstMatchIndex, firstNumberFound.Digit, firstNumberFound.Word.Length);
+            return firstNumberFound?.Digit;
         }
 
-        public static string ReplaceTheLastFoundDigitWordWithDigit(string line)
+        public static string? FindLastDigit(string line)
         {
             List<NumberLookup> numberTranslationLookups = LookupForNumbers(line);
 
@@ -56,8 +55,7 @@ namespace AdventOfCode.Day1
                 .OrderByDescending(l => l.LastMatchIndex)
                 .FirstOrDefault();
 
-            if (lastNumberFound == null) return line;
-            return ReplaceLookupWordWithDigit(line, lastNumberFound.LastMatchIndex, lastNumberFound.Digit, lastNumberFound.Word.Length);
+            return lastNumberFound?.Digit;
         }
 
         private static List<NumberLookup> LookupForNumbers(string line)
@@ -65,20 +63,13 @@ namespace AdventOfCode.Day1
             var numberTranslationLookups = new List<NumberLookup>();
             foreach (var numberTranslation in NumberLookup.Numbers)
             {
-                var index = Regex.Matches(line, numberTranslation.Key);
-                numberTranslationLookups.Add(new NumberLookup(numberTranslation.Key, index));
+                var matchesWords = Regex.Matches(line, numberTranslation.Key);
+                var matchesNumbers = Regex.Matches(line, numberTranslation.Value);
+                var matches = matchesWords.Concat(matchesNumbers).ToList();
+                numberTranslationLookups.Add(new NumberLookup(numberTranslation.Key, matches));
             }
 
             return numberTranslationLookups;
         }
-
-        private static string ReplaceLookupWordWithDigit(string line, int index, string numberToBeReplaced, int lenghtOfNumber)
-        {
-            return
-                line.Substring(0, index) +
-                numberToBeReplaced +
-                line.Substring(index + lenghtOfNumber);
-        }
-
     }
 }

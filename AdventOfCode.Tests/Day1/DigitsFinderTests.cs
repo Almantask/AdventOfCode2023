@@ -19,16 +19,17 @@ namespace AdventOfCode.Tests.Day1
         [InlineData("seven", "7")]
         [InlineData("eight", "8")]
         [InlineData("nine", "9")]
-        [InlineData("onetwo", "1two")]
-        [InlineData("ontwo", "on2")]
-        [InlineData("on", "on")]
-        [InlineData("ontwothree", "on2three")]
-        [InlineData("one3two2lcbcvhfive72", "13two2lcbcvhfive72")]
-        public void ReplaceTheFirstFoundDigitWordWithDigit_ReturnsExpected(string line, string expected)
+        [InlineData("eightwo", "8")]
+        [InlineData("ontwo", "2")]
+        [InlineData("on1", "1")]
+        [InlineData("one2", "1")]
+        [InlineData("2one", "2")]
+        [InlineData("threeeight", "3")]
+        public void FindFirstDigit_ReturnsExpected(string line, string expected)
         {
-            var replaced = DigitsMatcher.ReplaceTheFirstFoundDigitWordWithDigit(line);
+            var digit = DigitsMatcher.FindFirstDigit(line);
 
-            replaced.Should().Be(expected);
+            digit.Should().Be(expected);
         }
 
         [Theory]
@@ -41,17 +42,17 @@ namespace AdventOfCode.Tests.Day1
         [InlineData("seven", "7")]
         [InlineData("eight", "8")]
         [InlineData("nine", "9")]
-        [InlineData("onetwo", "one2")]
-        [InlineData("ontwo", "on2")]
-        [InlineData("on", "on")]
-        [InlineData("ontwothree", "ontwo3")]
-        [InlineData("ontwo34three", "ontwo343")]
-        [InlineData("smdn65foureight7fiveeight", "smdn65foureight7five8")]
-        public void ReplaceTheLastFoundDigitWordWithDigit_ReturnsExpected(string line, string expected)
+        [InlineData("eightwo", "2")]
+        [InlineData("ontwo", "2")]
+        [InlineData("on1", "1")]
+        [InlineData("one2", "2")]
+        [InlineData("2one", "1")]
+        [InlineData("threeeight", "8")]
+        public void FindLastDigit_ReturnsExpected(string line, string expected)
         {
-            var replaced = DigitsMatcher.ReplaceTheLastFoundDigitWordWithDigit(line);
+            var digit = DigitsMatcher.FindLastDigit(line);
 
-            replaced.Should().Be(expected);
+            digit.Should().Be(expected);
         }
     }
 }

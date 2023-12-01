@@ -18,8 +18,8 @@ namespace AdventOfCode.Day1
             foreach (var line in lines)
             {
                 var digits = line.Where(char.IsDigit).ToList().ToArray();
-                var firstTwoDigitsCombined = digits.First() + "" + digits.Last();
-                callibrationValues.Add(int.Parse(firstTwoDigitsCombined));
+                var firstAndLastCombined = digits.First() + "" + digits.Last();
+                callibrationValues.Add(int.Parse(firstAndLastCombined));
             }
 
             return callibrationValues.Sum();
@@ -30,24 +30,15 @@ namespace AdventOfCode.Day1
     {
         public long Solve(string input)
         {
-            var wordsReplacedWithDigits = ReplaceFirstAndLastWordsWithDigits(input);
-            var part1 = new Part1();
-            return part1.Solve(wordsReplacedWithDigits);
-        }
-
-        private static string ReplaceFirstAndLastWordsWithDigits(string input)
-        {
             var lines = input.SplitByEndOfLine();
-            var sb = new StringBuilder();
+            var callibrationValues = new List<int>();
             foreach (var line in lines)
             {
-                string replaced = line;
-                replaced = DigitsMatcher.ReplaceTheFirstFoundDigitWordWithDigit(replaced);
-                replaced = DigitsMatcher.ReplaceTheLastFoundDigitWordWithDigit(replaced);
-                sb.AppendLine(replaced);
+                var firstAndLastCombined = DigitsMatcher.FindFirstDigit(line) + DigitsMatcher.FindLastDigit(line);
+                callibrationValues.Add(int.Parse(firstAndLastCombined));
             }
 
-            return sb.ToString();
+            return callibrationValues.Sum();
         }
     }
 }
