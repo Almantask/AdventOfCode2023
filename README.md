@@ -1,10 +1,10 @@
 # AdventOfCode2023
 
-[![license](https://img.shields.io/github/license/Almantask/AdventOfCode2021.svg)](https://github.com/Almantask/AdventOfCode2022/blob/main/LICENSE)
-[![HitCount](http://hits.dwyl.com/Almantask/AdventOfCode2021.svg)](http://hits.dwyl.com//Almantask/AdventOfCode2022)
+[![license](https://img.shields.io/github/license/Almantask/AdventOfCode2023.svg)](https://github.com/Almantask/AdventOfCode2023/blob/main/LICENSE)
+[![HitCount](http://hits.dwyl.com/Almantask/AdventOfCode2023.svg)](http://hits.dwyl.com//Almantask/AdventOfCode2023)
 
-[![codecov](https://codecov.io/gh/Almantask/AdventOfCode2022/branch/main/graph/badge.svg?token=0QKB5JAGYE)](https://codecov.io/gh/Almantask/AdventOfCode2022)
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/c9a078ac6955471f8705d28e16c176fc)](https://www.codacy.com/gh/Almantask/AdventOfCode2022/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Almantask/AdventOfCode2022&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/3f58798ff1aa4a079b73473a14b8cdd1)](https://app.codacy.com/gh/Almantask/AdventOfCode2023/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
+[![Codacy Badge](https://app.codacy.com/project/badge/Coverage/3f58798ff1aa4a079b73473a14b8cdd1)](https://app.codacy.com/gh/Almantask/AdventOfCode2023/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_coverage)
 
 https://adventofcode.com/2023 solutions
 
