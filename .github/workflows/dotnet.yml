@@ -33,5 +33,5 @@ jobs:
       env:
         CODACY_PROJECT_TOKEN: 688e7c8f14bb419396fe6dfcaffba1ae
       run: |
-        curl -L https://coverage.codacy.com/get.sh | bash -s report -r ./fine-code-coverage/coverage-tool-output/AdventOfCode.Tests.coverage.xml
+        curl -L https://coverage.codacy.com/get.sh | bash -s report -r coverage.opencover.xml
            
